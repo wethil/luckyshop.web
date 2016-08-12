@@ -1,22 +1,25 @@
-Cookers = new Mongo.Collection('cookers');
+Branches = new Mongo.Collection('branches');
 
-Cookers.attachSchema(
+Branches.attachSchema(
     new SimpleSchema({
-    fullName: {
+    name: {
       type: String
     },
-    inf: {
+    city: {
       type: String
     },
-    photo:{
+    country:{
       type:String
+    },
+    storeID :{
+        type:String
     }
   })
 );
 
 
 
-Cookers.allow({
+Branches.allow({
     insert: function() {
         return true;
     },
@@ -28,4 +31,4 @@ Cookers.allow({
     }
 });
 
-export default Cookers;
+export default Branches;

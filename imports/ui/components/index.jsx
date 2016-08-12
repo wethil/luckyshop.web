@@ -12,6 +12,7 @@ import { browserHistory } from 'react-router';
 const Index = React.createClass({
 	
 	componentWillMount() {
+		
 		 
 		 if (!Meteor.userId()) {
 		 	browserHistory.push('/')
@@ -22,6 +23,7 @@ const Index = React.createClass({
 	
 
 	render() {
+
 		return (
 				  
 				  <div className="container">

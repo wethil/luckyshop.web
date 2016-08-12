@@ -1,27 +1,25 @@
 import React from 'react';
 import Register from '../userAccount/Register.jsx'
-import Logout from '../userAccount/Logout.jsx'
-
+import CompaniesMain from '../companies/CompaniesMain.jsx'
+import PersonalMain from '../personalUser/PersonalMain.jsx'
+import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx' 
+ 
  const MainPage = React.createClass({
+  componentWillMount(){
+      
+  },
 	render() {
+
 
 
 		if (this.props.user.profile.type=='user') {
       return (
-            <div className="className">
 
-            user  <Logout />  
-
-            </div>
-
+         <BranchForPromoCodeComp user={this.props.user} />
       );
     } else {
         return (
-          <div className="className">
-
-          company <Logout />  
-
-          </div>
+          <CompaniesMain />
 
         );
     }

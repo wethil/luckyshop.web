@@ -1,10 +1,16 @@
 import React from 'react';
-
+import Logout from '../userAccount/Logout.jsx'
+import CreateBranchForm from './forms/CreateBranchForm.jsx'
+import {BranchListComposer} from '../../composers/BranchListComposer.jsx'
  const CompaniesMain = React.createClass({
 	render() {
 		return (
-			<div>
+			<div className="container" >
+			<CreateBranchForm />
+			<BranchListComposer />
 				hi company
+				<Logout /> 
+
 			</div>
 		);
 	}

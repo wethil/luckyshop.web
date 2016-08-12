@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import  '../../api/foods/server/publications.js'
-import  '../../api/cookers/server/publications.js'
+import  '../../api/PromoCodes/server/publications.js'
+import  '../../api/branches/server/publications.js'
+import  '../../api/user/server/publications.js'
 import '../both.js';

@@ -28,3 +28,5 @@ natestrauser:jquery-scrollto
 percolate:migrations
 twbs:bootstrap
 accounts-password
+mizzao:timesync
+momentjs:moment
