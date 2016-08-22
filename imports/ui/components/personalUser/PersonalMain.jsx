@@ -57,7 +57,7 @@ import {UserPromosComposer} from '../../composers/UserPromosComposer.jsx'
 					<div className="col-md-12">
 					hi {username} Your Remain Credit : {credit}  
 					<button  onClick={this.createCode} className="btn btn-sm ttn-primary"> create code</button>
-					<button  onClick={this.incCredit} className="btn btn-sm ttn-primary"> Add Credit </button>
+					{/*<button  onClick={this.incCredit} className="btn btn-sm ttn-primary"> Add Credit </button>*/}
 					<Logout /> 
 				</div>
 

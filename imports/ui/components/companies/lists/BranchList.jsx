@@ -2,6 +2,9 @@ import React from 'react';
 import {PromoListComposer} from '../../../composers/PromoListComposer.jsx'
 
 const BranchList = React.createClass({
+	componentDidMount(){ 
+	$('.btn-tooltip').tooltip();
+},
 	createPromoCode()  {
 	 nth=	Math.floor(Math.random() * this.props.b_count);
 	 console.log(nth)
@@ -31,6 +34,23 @@ const BranchList = React.createClass({
 		      	branches.push( 
 					<div className="className">
 						<h3> {branch.name} {branch.city} {branch.country} </h3>
+					
+					 <button
+					 	dataToggle="tooltip" 
+					 	dataPlacement="top" 
+					 	title=" 1 Branch on Map"  
+					 	className="btn btn-primary btn-tooltip" >Package 1</button>
+
+				    <button dataToggle="tooltip" 
+					 		dataPlacement="top" 
+					 		title="3 Branch on Map"  
+					 		className="btn btn-info btn-tooltip">Package 2</button>
+
+				    <button dataToggle="tooltip" 
+					 		dataPlacement="top" 
+					 		title="5 Branch on Map"  
+					 		className="btn btn-success btn-tooltip">Package 3</button>
+
 						
 						<PromoListComposer branch={branch._id} />
 

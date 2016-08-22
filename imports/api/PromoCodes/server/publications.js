@@ -1,13 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import '../promoCodes.js'
 import Branches from '../../branches/branches.js'
-
-
-
- var Api = new Restivus({
-    useDefaultAuth: true,
-    prettyJson: true
-  });
+import Api from '../../rest.js'
 
 
   Api.addRoute('user/:username', {authRequired: false}, {
@@ -16,6 +10,8 @@ import Branches from '../../branches/branches.js'
                                       {fields:{"services":0}})
     },
   });
+
+
 
 
 
@@ -34,8 +30,12 @@ import Branches from '../../branches/branches.js'
                       promotion:promotion,
                       createdBy:user
                     })
-     
-      return PromoCodes.findOne({_id:promotionCode})
+      promoCode = PromoCodes.findOne({_id:promotionCode})
+      store = Meteor.users.findOne({_id:promoCode.branch.storeID},
+         {fields:{"profile.mapLimit":1,"profile.extraProbability":1}});
+      promoCode.store=store
+
+      return  promoCode
     },
   });
 

@@ -7,8 +7,9 @@ PromoCodes = new Mongo.Collection('promoCode',{
             _id:doc.branchID   
         })
          doc.owner=Meteor.users.findOne({
-            _id:doc.createdBy
-         })
+                _id:doc.createdBy
+             },{fields:{"profile.credit":1}})
+
         return doc
 
     }

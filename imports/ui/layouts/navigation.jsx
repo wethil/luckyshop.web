@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { IndexLink, Link } from 'react-router';
  const Navigation = React.createClass({
 	render() {
 		return (
@@ -13,7 +13,7 @@ import React from 'react';
 				                <span className="icon-bar"></span>
 				                <span className="icon-bar"></span>
 				              </button>   
-				              <a className="navbar-brand" href="#">Luckyshop</a>
+				             <IndexLink to="/" activeClassName="active">  <a className="navbar-brand" href="#">Luckyshop</a> </IndexLink>
 				            </div>
 				            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">    
 				              <ul className="nav navbar-nav">

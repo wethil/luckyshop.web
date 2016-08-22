@@ -6,8 +6,10 @@ const CreateBranchForm = React.createClass({
 			e.preventDefault()
 			name = this.refs.branchname.value.trim()
 			city = this.refs.b_city.value.trim()
+			lat = this.refs.lat.value.trim()
+			lng = this.refs.lng.value.trim()
 			storeID = Meteor.userId();
-				Meteor.call('addBranch', name,city,storeID, error => {
+				Meteor.call('addBranch', name,city,storeID,lat,lng, error => {
 	            if (error) {
 	                console.log('error', error);
 	            } else {
@@ -34,7 +36,7 @@ const CreateBranchForm = React.createClass({
                       <div className="modal-body">
 							 <form>
 							  <div className="form-group">
-							    <label >Branch Name</label>
+							   
 							    <input 
 							    	type="text" 
 							    	ref="branchname" 
@@ -43,13 +45,31 @@ const CreateBranchForm = React.createClass({
 							  </div>
 							  
 							  <div className="form-group">
-							    <label >City</label>
+							   
 							    <input 
 							    	type="text" 
 							    	ref="b_city"
 							    	className="form-control"  
 							    	placeholder="Branch City" />
 							  </div>
+							<div className="form-inline">
+								  <div className="form-group">
+								    
+								    <input type="text" 
+								    	className="form-control"  
+								    	ref="lat" 
+								    	placeholder="Latitude" />
+								  </div>
+								  <div className="form-group">
+								   
+								    <input type="email" 
+								    	className="form-control" 
+								    	ref="lng" 
+								    	placeholder="Longitude" />
+								  </div>
+								  
+								</div>
+
 						</form>
                       </div>
                       <div className="modal-footer">

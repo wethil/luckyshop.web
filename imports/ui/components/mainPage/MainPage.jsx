@@ -4,9 +4,11 @@ import CompaniesMain from '../companies/CompaniesMain.jsx'
 import PersonalMain from '../personalUser/PersonalMain.jsx'
 import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx' 
  
+
  const MainPage = React.createClass({
   componentWillMount(){
-      
+   
+
   },
 	render() {
 
@@ -17,9 +19,9 @@ import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx
 
          <BranchForPromoCodeComp user={this.props.user} />
       );
-    } else {
+    } else {-
         return (
-          <CompaniesMain />
+          <CompaniesMain  company={this.props.user} />
 
         );
     }
