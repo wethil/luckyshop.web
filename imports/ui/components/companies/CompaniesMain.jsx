@@ -7,7 +7,7 @@ import {BranchListComposer} from '../../composers/BranchListComposer.jsx'
 		return (
 			<div className="container" >
 			<CreateBranchForm />
-			<BranchListComposer />
+			<BranchListComposer company={this.props.company} />
 				hi company
 				<Logout /> 
 

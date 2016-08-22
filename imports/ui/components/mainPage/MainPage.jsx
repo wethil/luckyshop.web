@@ -19,7 +19,7 @@ import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx
 
          <BranchForPromoCodeComp user={this.props.user} />
       );
-    } else {-
+    } else {
         return (
           <CompaniesMain  company={this.props.user} />
 
