@@ -21,7 +21,8 @@ import Api from '../../rest.js'
       user =this.urlParams.id
       promotion = this.bodyParams.promotion 
      branches = Branches.find().fetch()
-     count = Branches.find().count()
+     count = branches.length
+     
      nth = Math.floor(Math.random() * count);
    
     promotionCode = PromoCodes.insert({
@@ -31,10 +32,7 @@ import Api from '../../rest.js'
                       createdBy:user
                     })
       promoCode = PromoCodes.findOne({_id:promotionCode})
-      store = Meteor.users.findOne({_id:promoCode.branch.storeID},
-         {fields:{"profile.mapLimit":1,"profile.extraProbability":1}});
-      promoCode.store=store
-
+      
       return  promoCode
     },
   });
