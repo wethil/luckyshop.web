@@ -68,10 +68,25 @@ const BranchList = React.createClass({
 		      	branches.push( 
 					<div className="className">
 						<h3> {branch.name} {branch.city} {branch.country} </h3>
-						<hr/><hr/>
-						<h5> Map limit :  {company.profile.mapLimit} | If you want to change your map limit, choose another package   </h5>
+						
 					
-					 <button
+					
+
+						
+						<PromoListComposer branch={branch._id} />
+
+					</div>
+
+		         ) ;
+		    });
+		  } else {
+		    branches =  <p>Create a branch for your store!</p> ;
+		  }
+		return (
+			<div>
+			<hr/><hr/>
+						<h5> Map limit :  {company.profile.mapLimit} | If you want to change your map limit, choose another package   </h5>
+			 <button
 					 	dataToggle="tooltip" 
 					 	dataPlacement="top" 
 					 	onClick={this.setFirstPackage}
@@ -89,19 +104,6 @@ const BranchList = React.createClass({
 					 		onClick={this.setThirdPackage} 
 					 		title="5 Branch on Map"  
 					 		className="btn btn-success btn-tooltip">Package 3</button>
-
-						
-						<PromoListComposer branch={branch._id} />
-
-					</div>
-
-		         ) ;
-		    });
-		  } else {
-		    branches =  <p>Create a branch for your store!</p> ;
-		  }
-		return (
-			<div>
 				total : {this.props.b_count}
 				{branches}
 
