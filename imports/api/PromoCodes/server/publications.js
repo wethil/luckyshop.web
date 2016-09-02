@@ -19,21 +19,22 @@ import Api from '../../rest.js'
  Api.addRoute('createPromoCode/:id', {authRequired: false}, {
     post: function () {
       user =this.urlParams.id
-      promotion = this.bodyParams.promotion 
-     branches = Branches.find().fetch()
-     count = branches.length
+      branch = this.bodyParams.branch 
+      console.log(branch)
+      promotion = 0.10
+    
      
-     nth = Math.floor(Math.random() * count);
+  
    
     promotionCode = PromoCodes.insert({
                       createdAt:new Date(),
-                      branchID:branches[nth]._id,
+                      branchID:branch,
                       promotion:promotion,
                       createdBy:user
                     })
-      promoCode = PromoCodes.findOne({_id:promotionCode})
       
-      return  promoCode
+      
+      return  promotionCode
     },
   });
 

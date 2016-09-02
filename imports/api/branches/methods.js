@@ -16,3 +16,9 @@ Meteor.methods({
 	}
 });
 
+Meteor.methods({
+	addPlan :  function (plan,branch) {
+		Branches.update({_id:branch}, {$set:{'plan':plan}})
+	}
+});
+

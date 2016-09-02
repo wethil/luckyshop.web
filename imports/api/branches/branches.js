@@ -17,6 +17,7 @@ Branches = new Mongo.Collection('branches',{
 Branches = new Mongo.Collection('branches')
 
 
+/*
 import LocatonSchema from '../LocationSchema.js'
 
 Branches.attachSchema(
@@ -35,9 +36,13 @@ Branches.attachSchema(
     },
     storeID :{
         type:String
+    },
+    plan: {
+      type:Object,
+      defaultValue:{}
     }
   })
-);
+);*/
 
 
 

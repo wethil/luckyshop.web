@@ -23,6 +23,15 @@ import Api from '../../rest.js'
 
 
 
+  Api.addRoute('branches', {authRequired: false}, {
+    get: function () {
+   return  Branches.find().fetch()
+
+    }
+  });
+
+
+
 
 Meteor.publish('branchesCount',function(user){
 	return Branches.find()
