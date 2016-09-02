@@ -131,6 +131,18 @@ const BranchList = React.createClass({
 		});
 	},
 
+	deleteBranch(e){
+		e.preventDefault()
+		Meteor.call('deleteBranch', this.state.branch, error=> {
+			if (error) {
+				console.log(error)
+			}else {
+				console.log('deleted')
+			}
+		});
+	},
+
+
 
 	
 
@@ -174,7 +186,11 @@ const BranchList = React.createClass({
 					 		dataPlacement="top"
 					 		onClick={this.setFourthPackage} 
 					 		title="Platinium"  
-					 		className="btn btn-success btn-tooltip">Platinium</button>	
+					 		className="btn btn-success btn-tooltip">Platinium</button>
+					 		 <button 
+					 		onClick={this.deleteBranch} 
+					 		title="DeleteBranch"  
+					 		className="btn btn-success btn-tooltip">Delete Branch</button>	
 
 						
 						<PromoListComposer branch={branch._id} />

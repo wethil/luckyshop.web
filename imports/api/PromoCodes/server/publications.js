@@ -34,7 +34,7 @@ import Api from '../../rest.js'
                     })
       
       
-      return  promotionCode
+      return  {'type':'ans','code':promotionCode}
     },
   });
 

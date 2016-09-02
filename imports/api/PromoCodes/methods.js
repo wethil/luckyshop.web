@@ -11,6 +11,8 @@ Meteor.methods({
 			})
 	
 	}
+	
+
 });
 
 
