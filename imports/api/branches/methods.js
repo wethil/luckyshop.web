@@ -3,16 +3,11 @@ import Branches from './branches.js'
 import PromoCodes from '../PromoCodes/promoCodes.js'
 
 Meteor.methods({
-	addBranch :  function (name,city,storeID,lat,lng) {
+	addBranch :  function (name,adress,loc) {
 		Branches.insert({
 			name:name,
-			city:city,
-			country:'Netherlands',
-			storeID:storeID,
-			  loc: {
-                type: "Point",
-                coordinates : [lat,lng]
-            }
+			adress:adress,
+			loc:loc
 		})
 	},
 

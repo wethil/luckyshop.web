@@ -3,7 +3,7 @@
 Branches = new Mongo.Collection('branches',{
     transform : function (doc) {
      
-         doc.store=Meteor.users.findOne({
+          doc.store=Meteor.users.findOne({
                 _id:doc.storeID
              },{fields:{"profile.mapLimit":1,"profile.extraProbability":1}})
 
@@ -17,7 +17,7 @@ Branches = new Mongo.Collection('branches',{
 Branches = new Mongo.Collection('branches')
 
 
-/*
+
 import LocatonSchema from '../LocationSchema.js'
 
 Branches.attachSchema(
@@ -26,23 +26,31 @@ Branches.attachSchema(
       type: String
     },
     city: {
-      type: String
+      type: String,
+      optional:true
     },
     country:{
-      type:String
+      type:String,
+       optional:true
     },
     loc: {
       type: LocationSchema
     },
     storeID :{
-        type:String
+        type:String,
+         optional:true
     },
     plan: {
       type:Object,
-      defaultValue:{}
+      defaultValue:{},
+       optional:true
+    },
+    paymentInf:{
+      type:Object,
+      optional:true
     }
   })
-);*/
+);
 
 
 
