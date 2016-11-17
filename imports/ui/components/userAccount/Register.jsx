@@ -39,7 +39,7 @@ import emitter from '../emitter.js'
 			                    firstName: 'Joe',
 			                    lastName: 'Doe',
 			                    avatar : 'https://pbs.twimg.com/profile_images/641938771022254081/5k8jmHOW.png',
-			                    branches : [],
+			                    branchId : 'null',
 			                    mapLimit:1,
 			                    extraProbability:0
 			                }

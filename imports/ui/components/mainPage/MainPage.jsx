@@ -1,6 +1,6 @@
 import React from 'react';
 import Register from '../userAccount/Register.jsx'
-
+import CompaniesMain from  '../companies/CompaniesMain.jsx'
 import PersonalMain from '../personalUser/PersonalMain.jsx'
 import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx' 
  

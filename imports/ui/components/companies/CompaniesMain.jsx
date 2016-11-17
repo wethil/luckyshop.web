@@ -8,6 +8,7 @@ import ItemsForCompanies from '../Items/ItemsForCompanies.jsx'
 import CompaniesMenu from './CompaniesMenu.jsx'
 import CompaniesFeed from './CompaniesFeed.jsx'
 import emitter from '../emitter.js'
+import CreateOrBeMemberBranch from './CreateOrMember/CreateOrBeMemberBranch.jsx'
 const { Content, Description, Group, Header, Image } = Item
 
 
@@ -40,7 +41,63 @@ const { Content, Description, Group, Header, Image } = Item
  	}
 
 	render() {
-		const {title,description,image,price} = this.state
+
+company = this.props.company
+console.log(company)
+if (company.profile.branchId=='null')
+		{
+			branchFragment = <CreateOrBeMemberBranch />
+		} else {
+			branchFragment =<span>null</span>
+		}
+
+		return (
+			<div className="className">
+			<CompaniesMenu />
+			{branchFragment}
+
+
+			</div>
+		);
+	}
+}
+export default CompaniesMain;
+
+const styles = {
+	mapStyle:{
+		zIndex:1,
+		position:'absolute',		
+		top:0,
+		left:0,
+		top:0,
+		bottom:0
+	}
+};
+
+
+
+/*
+	<div style={{marginLeft:210, minWidth:550, maxWidth:1150}}>
+				<div className="ui padded   grid">
+					<div className="five wide column" style={{position:'fixed',height:'100vh'}} >
+						<CreateOrBeMemberBranch />
+					</div>
+					<div className="eleven wide column" style={{marginLeft:'39%'}}>
+						<div className="row" style={{width:'100%'}}>
+						{winner}
+					{items}
+						 </div>
+						<div className="row"> </div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+					const {title,description,image,price} = this.state
 		if(this.state.title!=""){
 			winner =	<Group>
 						 <Item>
@@ -62,40 +119,4 @@ const { Content, Description, Group, Header, Image } = Item
 			items = ""
 		}
 
-
-		return (
-			<div className="className">
-			<CompaniesMenu />
-
-				<div style={{marginLeft:210, minWidth:550, maxWidth:1150}}>
-				<div className="ui padded   grid">
-					<div className="five wide column" style={{position:'fixed',height:'100vh'}} >
-						<CompaniesFeed />
-					</div>
-					<div className="eleven wide column" style={{marginLeft:'39%'}}>
-						<div className="row" style={{width:'100%'}}>
-						{winner}
-					{items}
-						 </div>
-						<div className="row"> </div>
-					</div>
-				</div>
-			</div>
-
-
-			</div>
-		);
-	}
-}
-export default CompaniesMain;
-
-const styles = {
-	mapStyle:{
-		zIndex:1,
-		position:'absolute',		
-		top:0,
-		left:0,
-		top:0,
-		bottom:0
-	}
-};
+*/

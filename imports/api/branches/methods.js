@@ -3,12 +3,29 @@ import Branches from './branches.js'
 import PromoCodes from '../PromoCodes/promoCodes.js'
 
 Meteor.methods({
-	addBranch :  function (name,adress,loc) {
-		Branches.insert({
+	addBranchAsHeadQuarter :  function (name,adress,loc,plan,paymentInf) {
+		branch = Branches.insert({
 			name:name,
 			adress:adress,
-			loc:loc
+			loc:loc,
+			headQuarter:true,
+			plan:plan,
+			paymentInf:paymentInf
 		})
+
+		return Meteor.users.update(this.userId, {$set: { 'profile.branchId': branch }});
+	},
+	addBranchAsBranch :  function (name,adress,loc,plan,paymentInf,headQuarterId) {
+	branch =	Branches.insert({
+			name:name,
+			adress:adress,
+			loc:loc,
+			headQuarterId:headQuarterId,
+			plan:plan,
+			paymentInf:paymentInf
+
+		})
+	return Meteor.users.update(this.userId, {$set: { 'profile.branchId': branch }});
 	},
 
 

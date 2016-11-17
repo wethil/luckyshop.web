@@ -29,7 +29,16 @@ const Index = React.createClass({
 	render() {
 
 		return (
-			 <CompaniesMain />
+			 <div className="container">
+				  		<div className="row">
+				  			<div className="col-md-4">
+				  					<Register />
+				  			</div>
+				  			<div className="col-md-4">
+				  					<Login />
+				  			</div>
+				  		</div>
+				  </div>
 		);
 	}
 });

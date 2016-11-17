@@ -29,24 +29,23 @@ Branches.attachSchema(
       type: String,
       optional:true
     },
-    country:{
-      type:String,
-       optional:true
-    },
     loc: {
       type: LocationSchema
     },
-    storeID :{
-        type:String,
-         optional:true
-    },
     plan: {
-      type:Object,
-      defaultValue:{},
+      type:String,
        optional:true
     },
     paymentInf:{
-      type:Object,
+      type:String,
+      optional:true
+    },
+    headQuarter:{
+      type:Boolean,
+      defaultValue:false
+    },
+    headQuarterId:{
+      type:String,
       optional:true
     }
   })
