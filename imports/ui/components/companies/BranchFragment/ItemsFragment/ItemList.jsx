@@ -1,37 +1,50 @@
 import React, { Component } from 'react';
 import faker from 'faker'
 
- class ItemsForCompanies extends Component {
+ class ItemList extends Component {
 	render() {
-console.log(faker.image.fashion())
+
 		cards = []
-		for (i=0; i<10; i++) {
-			cards.push(	<div key={i} className="four wide column animated fadeIn ">
+		this.props.items.forEach(function (item) {
+			cards.push(	<div key={item._id} className="four wide column animated fadeIn ">
 						<div className="ui card">
 					  <div className="content">
-					    <div className="right floated meta">%9</div>
-					    <img className="ui avatar image" src="https://pbs.twimg.com/profile_images/543749686226456577/e3g8uJRD.jpeg" /> Store Name
+					    <div className="right floated meta">%{item.additionalDiscount} </div>
+					    <img className="ui avatar image" src="https://pbs.twimg.com/profile_images/543749686226456577/e3g8uJRD.jpeg" />{options[item.clothesType].text} 
 					  </div>
 					  <div className=" ui small image">
-					    <img  src={skirts[i]} />
+					    <img  src={item.photo} />
 					  </div>
 					  <div className="content">
-					    <a className="header">Clothing</a>
+					    <a className="header"> {item.name} </a>
 					  </div>
-					    <div className="ui bottom attached button">
-					    	 Sell It for {faker.finance.amount(0, 100, 2, '€')}
+					   <div className="ui bottom attached button">
+					    	 {item.quantity} left
 					    </div>
 					</div>
 			</div>)
-		}
+		
+	
+		});
 		return (
-			<div className="ui  stackable grid"  >
-				{cards}
-			</div>
+			<div className="eleven wide column" style={{marginLeft:'39%'}}>
+						<div className="row" style={{width:'100%'}}>
+							<div className="ui  stackable grid"  >
+									{cards}
+								</div>
+						 </div>
+						<div className="row"> </div>
+					</div>
 		);
 	}
 }
-export default ItemsForCompanies;
+export default ItemList;
+
+const options = [
+  { text: 'Skirt', name: 'Skirt', value: 0 },
+  { text: 'Shoe', name: 'Shoe', value: 1 },
+  { text: 'T-shirt', name: 'T-shirt', value: 2 },
+]
 
 
 const skirts=[

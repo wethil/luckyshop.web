@@ -1,6 +1,6 @@
 import React from 'react';
 import Logout from '../userAccount/Logout.jsx'
-import {UserPromosComposer} from '../../composers/UserPromosComposer.jsx'
+
  const PersonalMain = React.createClass({
  	getInitialState (){
 

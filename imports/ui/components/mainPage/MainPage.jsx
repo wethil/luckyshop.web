@@ -1,8 +1,8 @@
 import React from 'react';
 import Register from '../userAccount/Register.jsx'
-import CompaniesMain from  '../companies/CompaniesMain.jsx'
-import PersonalMain from '../personalUser/PersonalMain.jsx'
-import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx' 
+import {CompaniesMainComposer} from  '../companies/CompaniesMainComposer.jsx'
+
+
  
 
  const MainPage = React.createClass({
@@ -17,11 +17,11 @@ import {BranchForPromoCodeComp} from '../../composers/BranchForPromoCodeComp.jsx
 		if (this.props.user.profile.type=='user') {
       return (
 
-         <BranchForPromoCodeComp user={this.props.user} />
+        <span>user</span>
       );
     } else {
         return (
-          <CompaniesMain  company={this.props.user} />
+          <CompaniesMainComposer  company={this.props.user} />
 
         );
     }

@@ -7,14 +7,21 @@ Items.attachSchema(
     name: {
       type: String
     },
-    desc: {
-      type: String
+    quantity: {
+      type: Number
     },
     photo : {
       type : String
     },
     branchId:{
         type:String
+    },
+    clothesType:{
+        type:String,
+    },
+    additionalDiscount:{
+        type:Number,
+        optional:true
     }
   })
 );

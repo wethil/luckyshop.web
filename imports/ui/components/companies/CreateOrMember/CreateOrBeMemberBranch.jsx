@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Image, List } from 'semantic-ui-react'
 import Forms from './Forms.jsx'
 
+
  class CreateOrBeMemberBranch extends Component {
  	constructor(props) {
  	  super(props);

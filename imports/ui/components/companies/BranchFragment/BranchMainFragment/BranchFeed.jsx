@@ -3,7 +3,9 @@ import _ from 'lodash'
 import Chance from 'chance'
 import { Search, Grid, Header,Icon,Feed } from 'semantic-ui-react'
 import faker from 'faker'
-import emitter from '../emitter.js'
+import emitter from '../../../emitter.js'
+import BranchCard from '../BranchComponents/BranchCard.jsx'
+
 var chance = new Chance();
 
 const source = _.times(5, () => ({
@@ -42,9 +44,10 @@ source.forEach(function (user){
 
 
 
- class CompaniesFeed extends Component {
+ class BranchFeed extends Component {
  	componentWillMount() {
    		 this.resetComponent()
+       
 
   }
 
@@ -80,11 +83,14 @@ source.forEach(function (user){
 
 
 	render() {
-		 $(".ui.input").addClass("fluid");
+		 $(".ui.icon.input").addClass("fluid")
+     const  {branch,company}=this.props
 		const { isLoading, value, results } = this.state
 		return (
-			<div>
-        
+
+          <div className="five wide column" style={{position:'fixed',height:'100vh'}} >  
+		
+          <BranchCard branch={branch} company={company} />
           <Search
           	fluid={true}
             loading={isLoading}
@@ -92,20 +98,20 @@ source.forEach(function (user){
             onSearchChange={this.handleSearchChange.bind(this)}
             results={results}
             value={value}
-        onChange={(e,value)=> this.handleSelect(value)}
-            placeholder="Search users by name,username or code"
+          onChange={(e,value)=> this.handleSelect(value)}
+            placeholder="Search users by name"
            
-            {...this.props}
+         
           />
 
 <Feed>
 {myFeed}
 </Feed>
   
-        
-      </div>
+       </div> 
+     
 		);
 	}
 }
-export default CompaniesFeed;
+export default BranchFeed;
 

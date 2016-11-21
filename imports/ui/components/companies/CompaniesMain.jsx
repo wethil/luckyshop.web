@@ -1,54 +1,27 @@
 import React, { Component } from 'react';
 import { Statistic } from 'semantic-ui-react'
 import { List, Button } from 'semantic-ui-react'
-import { Item } from 'semantic-ui-react'
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import ItemsForCompanies from '../Items/ItemsForCompanies.jsx'
+import BranchFragment from './BranchFragment/BranchFragment.jsx'
 import CompaniesMenu from './CompaniesMenu.jsx'
-import CompaniesFeed from './CompaniesFeed.jsx'
-import emitter from '../emitter.js'
 import CreateOrBeMemberBranch from './CreateOrMember/CreateOrBeMemberBranch.jsx'
-const { Content, Description, Group, Header, Image } = Item
-
-
 
 
  class CompaniesMain extends Component {
- 	constructor(props) {
- 	  super(props);
- 	
- 	  this.state = {
- 	  	title:"",
- 	  	description:"",
- 	  	image:"",
- 	  	price:"",
- 	  };
- 	}
+ 
 
- 	componentDidMount(){
- 		emitter.addListener('selectWinner', (value)=>this.handleSelect(value));
- 	}
-
- 	handleSelect(value){
- 		console.log(value)
- 		this.setState({
- 			title:value.title,
- 			description:value.description,
- 			image:value.image,
- 			price:value.price
- 		})
- 	}
 
 	render() {
 
-company = this.props.company
+const {company,branch} = this.props
 console.log(company)
-if (company.profile.branchId=='null')
+console.log(branch)
+if (company.profile.branchId==false )
 		{
 			branchFragment = <CreateOrBeMemberBranch />
 		} else {
-			branchFragment =<span>null</span>
+			branchFragment =<BranchFragment branch={branch} company={company} />
 		}
 
 		return (

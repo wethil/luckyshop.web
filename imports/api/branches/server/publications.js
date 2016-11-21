@@ -33,20 +33,8 @@ import Api from '../../rest.js'
 
 
 
-Meteor.publish('branchesCount',function(user){
-	return Branches.find()
+Meteor.publish('thisBranch',function(branch){
+	return Branches.find({_id:branch})
 });
 
 
-
-Meteor.publish('thisUserBranch',function(user){
-	return Branches.find({storeID:user})
-});
-
-Meteor.publish('branchForPromoCode',function(){
-	return	Branches.find()
-});
-
-
-
-	
