@@ -15,6 +15,9 @@ import emitter from '../emitter.js'
 			email = this.refs.email.value.trim()
 			username = this.refs.username.value.trim()
 			password = this.refs.password.value.trim()
+			console.log(email)
+			console.log(username)
+			console.log(password)
 
 			if (this.state.userType=='user') {
 				options =  {
@@ -99,81 +102,72 @@ import emitter from '../emitter.js'
 		
 
 		return (
-			<div className="className">
-				 <form>
-				  <div className="form-group">
-				    <label >Username</label>
-				    <input 
+			    <div className="ui stacked segment">
+		        <div className="field">
+		          <div className="ui left icon input">
+		            <i className="user icon"></i>
+		             <input 
 				    	type="text" 
 				    	ref="username" 
 				    	className="form-control" 
 				    	id="reg_username" 
-				    	placeholder="Username" />	 
-				  </div>
-				  
-				  <div className="form-group">
-				    <label >Email</label>
-				    <input 
+				    	placeholder="Username" />
+		          </div>
+		        </div>
+		         <div className="field">
+		          <div className="ui left icon input">
+		            <i className="mail icon"></i>
+		             <input 
 				    	type="email" 
 				    	ref="email"
 				    	className="form-control" 
 				    	id="reg_email" 
 				    	placeholder="Email" />
-				  </div>
-				 
-				  <div className="form-group">
-				    <label >Password</label>
-				    <input 
+		          </div>
+		        </div>
+		          <div className="field">
+		          <div className="ui left icon input">
+		            <i className="lock icon"></i>
+		           	    <input 
 				    	type="password"
 				    	ref="password" 
 				    	className="form-control" 
 				    	id="reg_pass" 
 				    	placeholder="Password" />
-				  </div>
-
-				   <div className="form-group">
-				    <label className="radio-inline" >
-				        <input 
-				        	type="radio" 
-				        	name="userType" 
-				        	id="optionsRadios1" 
-				        	value="user"
-				        	onChange={this.handleOptionChange}
-				        	checked={this.state.userType == 'user'}
-				        	/>
-				        <i></i>User 
-				    </label>
-
-				    <label className="radio-inline" >
-				        <input 
-				        	type="radio" 
-				        	name="userType" 
-				        	id="optionsRadios2" 
-				        	value="company" 
-				        	onChange={this.handleOptionChange}
-				        	checked={this.state.userType == 'company'} 
-				        	/>
-				        <i></i>Company
-				    </label>
-				    <button 
-								  	type="submit" 
-								  	className="btn btn-default"
-								  	onClick={this.handlecheck}
-								  	>check inf
-					</button>
-		</div>
-
-
-
-				  <button 
-				  	type="submit" 
-				  	className="btn btn-default"
-				  	onClick={this.handleRegister}
-				  	>Register</button>
-			</form>
-
-			
-			</div>		
+		          </div>
+		        </div>
+		          <div className="inline fields">
+    <div className="field">
+      <div className="ui radio checkbox">
+          <input 
+	        	type="radio" 
+	        	name="userType" 
+	        	id="optionsRadios1" 
+	        	value="user"
+	        	onChange={this.handleOptionChange}
+	        	checked={this.state.userType == 'user'}
+	        	/>
+        <label>User</label>
+      </div>
+    </div>
+    <div className="field">
+      <div className="ui radio checkbox">
+          <input 
+	        	type="radio" 
+	        	name="userType" 
+	        	id="optionsRadios2" 
+	        	value="company" 
+	        	onChange={this.handleOptionChange}
+	        	checked={this.state.userType == 'company'} 
+	        	/>
+        <label>Company</label>
+      </div>
+    </div>
+  </div>
+		        <div className="ui fluid  basic large teal submit button"
+		        	onClick={this.handleRegister}>Register</div>
+		      </div>
+  
 		);
 	}
 });

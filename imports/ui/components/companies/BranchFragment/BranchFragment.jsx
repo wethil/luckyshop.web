@@ -12,6 +12,7 @@ import emitter from '../../emitter.js'
  	  };
  	}
 
+ 
 
  		componentDidMount(){
 			emitter.addListener('changeBFContent', (content)=> this.changeBFContent(content))
@@ -28,7 +29,7 @@ import emitter from '../../emitter.js'
 			case 'home':
 				content=<div className="ui padded   grid">
 									<BranchFeed branch={branch} company={company}/>
-									<BranchItemsComposer branch={company.profile.branchId} />
+									<BranchItemsComposer branch={branch._id} company={company} />
 					</div>
 			break;
 			case 'items':

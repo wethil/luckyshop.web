@@ -5,7 +5,9 @@ import faker from 'faker'
 	render() {
 
 		cards = []
-		this.props.items.forEach(function (item) {
+	items=this.props.items
+	if(items && items.length>0) {
+		items.forEach(function (item) {
 			cards.push(	<div key={item._id} className="four wide column animated fadeIn ">
 						<div className="ui card">
 					  <div className="content">
@@ -26,6 +28,9 @@ import faker from 'faker'
 		
 	
 		});
+	}else {
+		cards = <h4> Please add some clothes </h4>
+	}
 		return (
 			<div className="eleven wide column" style={{marginLeft:'39%'}}>
 						<div className="row" style={{width:'100%'}}>

@@ -4,7 +4,7 @@ import { List, Button } from 'semantic-ui-react'
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import Items from '../Items/Items.jsx'
-
+import { browserHistory } from 'react-router'
 const { Group, Label, Value } = Statistic
 
 const items = [
@@ -16,6 +16,12 @@ position = [23.07973, 11.60156]
 
 const promoCodes = ["Z09jTr2bZXBXcxj","lTQjcKra0NFJHwp,","oy2nPaM21q99O8Z","HK1MUNuJXcyKOya","t8PSNGDMWBIHiuW"]
  class MainPageContent extends Component {
+	logOut(){
+ 		Meteor.logout(function(err) {
+ 			browserHistory.push('/')
+		});
+ 	}
+
 	render() {
 		return (
 			<div style={{marginLeft:210, minWidth:550, maxWidth:1150}}>
@@ -47,6 +53,7 @@ const promoCodes = ["Z09jTr2bZXBXcxj","lTQjcKra0NFJHwp,","oy2nPaM21q99O8Z","HK1M
 							    <List.Item > Credit : 10 </List.Item>
 						 	</List>
 						 	  <Button fluid basic color='teal'>Add Credit</Button>
+						 	  <Button onClick={this.logOut.bind(this)} fluid basic color='red'>Logout</Button>
 						
 					
 

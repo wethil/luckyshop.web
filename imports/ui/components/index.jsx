@@ -29,16 +29,31 @@ const Index = React.createClass({
 	render() {
 
 		return (
-			 <div className="container">
-				  		<div className="row">
-				  			<div className="col-md-4">
-				  					<Register />
-				  			</div>
-				  			<div className="col-md-4">
-				  					<Login />
-				  			</div>
-				  		</div>
-				  </div>
+			
+		<div className="ui middle aligned center aligned grid" style={styles.main}>
+		  <div className="column" style={{maxWidth:450}} >
+		    <h2 className="ui pink image header">
+		      <div className="content">
+		        lucky2shop
+		      </div>
+		    </h2>
+		    <form className="ui large form">
+				<Login />
+		      <div className="ui error message"></div>
+
+		    </form>
+
+
+		     <form className="ui large form">
+		      	<Register />
+
+		    </form>
+
+		 
+		  </div>
+		</div>
+
+
 		);
 	}
 });
@@ -48,8 +63,19 @@ export default Index;
 
 
 
-/*
-<div className="container">
+const styles = {
+	main:{
+		backgroundImage: 'url("bg.jpg")',
+		height:'100vh',
+		backgroundSize:'cover'
+	}
+};
+
+
+
+
+ /*
+<div style={{backgroundImage: 'url("bg.jpg")'}}>
 				  		<div className="row">
 				  			<div className="col-md-4">
 				  					<Register />
@@ -59,26 +85,5 @@ export default Index;
 				  			</div>
 				  		</div>
 				  </div>
-<div className="className">
-               <LandingNavBar />
-                <LandingBody />
-              </div>
 
-
-
-              <div className="className">
-			 	<Menu color='pink' fixed="left" inverted vertical >
-			 		  <Menu.Item>
-			        	 <Menu.Header>lucky2shop</Menu.Header>
-			        </Menu.Item>
-			        <Menu.Item > 
-			        		<Menu.Header>Home Page</Menu.Header>
-			        </Menu.Item>
-			        
-
-			 	</Menu>
-			 	<MainPageContent />
-			 </div>				  
-
-
-				  */
+ */

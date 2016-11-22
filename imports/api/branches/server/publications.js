@@ -38,3 +38,6 @@ Meteor.publish('thisBranch',function(branch){
 });
 
 
+Meteor.publish('thisStoresBranches',function(branch){
+  return Branches.find({headQuarterId:branch})
+});

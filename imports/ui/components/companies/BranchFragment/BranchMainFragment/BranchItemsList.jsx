@@ -20,9 +20,22 @@ const { Content, Description, Group, Header, Image } = Item
  		emitter.addListener('selectWinner', (value)=>this.handleSelect(value));
  	}
 
- 	sellClothes(){
+ 	componentWillMount(){
+ 		this.setState({title:this.props.title})
+ 	}
 
- 		console.log('done')
+ 	componentWillReceiceProps(nextProps){
+ 		this.setState({title:nextProps.title})
+ 	}
+ 	sellClothes(item){
+ console.log('done')
+	Meteor.call('sellItem', item,  (error)=> {
+		   			if (error) {
+		   				console.log(error)
+		   			}else {
+		   				console.log('sell')
+		   			}
+		   		})
  	}
 
  		handleSelect(value){
@@ -37,8 +50,13 @@ const { Content, Description, Group, Header, Image } = Item
 
 	render() {
 			cards = []
+			console.log(this.props.control)
+			console.log(this.props.title)	
 		const {title,description,image,price} = this.state
-			this.props.items.forEach(function (item) {
+			items = this.props.items
+		
+	if (items&&items.length>0){
+			items.forEach( (item)=> {
 			cards.push(	<div key={item._id} className="four wide column animated fadeIn ">
 						<div className="ui card">
 					  <div className="content">
@@ -51,25 +69,27 @@ const { Content, Description, Group, Header, Image } = Item
 					  <div className="content">
 					    <a className="header"> {item.name} </a>
 					  </div>
-					   <div className="ui bottom attached button" onClick={()=>
-						{	
-					   	Meteor.call('sellItem', item._id,  (error)=> {
-					   			if (error) {
-					   				console.log(error)
-					   			}else {
-					   				console.log('sell')
-					   			}
-					   		})
-					   }} >
+					   <div className="ui bottom attached button" onClick={()=>this.sellClothes(item._id)} >
 					    	  Sell It for {faker.finance.amount(0, 100, 2, '€')}
 					    </div>
 					</div>
 			</div>)
-		
-	
 		});
-		if(this.state.title!=""){
-			winner =	<Group>
+		}else {
+			cards = <h5> This branch have no clothes Please add. </h5> 
+		}
+	
+		if(this.state.title==""){
+			winner = <h2>please choose a winner</h2>
+			items = ""
+		
+		} else {
+			
+			if(this.state.title=="boss"){
+					winner =<span></span>
+   				items =  <div className="ui  stackable grid" >{cards}</div>
+   			} else {
+   				winner =	<Group>
 						 <Item>
 					      <Image className="ui" size='small' src={image} shape='circular' ui={true} />
 					      <Content>
@@ -83,15 +103,11 @@ const { Content, Description, Group, Header, Image } = Item
 					      </Content>
    					 </Item>
    					 </Group>
-   					items =  <div className="ui  stackable grid"  >
-				   					{cards}
-				   					</div>
-		} else {
-			winner = <h2>please choose a winner</h2>
-			items = ""
+   				items =  <div className="ui  stackable grid" >{cards}</div>
+   			}
 		}
 
-	
+
 	
 		return (
 			<div className="eleven wide column" style={{marginLeft:'39%'}}>
@@ -126,3 +142,6 @@ const skirts=[
 	"http://www.patagonia.com/dis/dw/image/v2/ABBM_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw3079af19/images/hi-res/38958_DSE.jpg?sw=500&sh=500&sfrm=png",
 	"http://johnlewis.scene7.com/is/image/JohnLewis/001867186?$prod_grid3$"
 ]
+
+
+		

@@ -4,32 +4,77 @@ import { List, Button } from 'semantic-ui-react'
 import { render } from 'react-dom';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import BranchFragment from './BranchFragment/BranchFragment.jsx'
-import CompaniesMenu from './CompaniesMenu.jsx'
+import MenuFragment from './LeftMenu/MenuFragment.jsx'
+import emitter from '../emitter.js'
 import CreateOrBeMemberBranch from './CreateOrMember/CreateOrBeMemberBranch.jsx'
 
 
  class CompaniesMain extends Component {
+ constructor(props) {
+   super(props);
  
+   this.state = {
+   	company:{},
+   	branch:{}
+   };
+ }
+
+ componentDidMount(){
+ 	emitter.addListener('selectBranch', (branch)=>this.handleSelectBranch(branch));
+ 	emitter.addListener('mainBranch', ()=> this.setState({branch:this.state.main}) );
+ }
+
+ handleSelectBranch(branch){
+ 	this.setState({branch:branch})
+
+ 	console.log(branch)
+ }
+
+ componentWillMount(){
+	 const {company,branch} = this.props
+	 if(!branch || !branch._id){
+	 	brnc = {_id:""}
+	 } else {
+	 	brnc = branch
+	 }
+
+	 this.setState({
+	 	company:company,
+	 	branch:brnc,
+	 	main:branch
+	 	})
+ }
+
+componentWillReceiveProps(nextProps){
+		 const {company,branch} = nextProps
+	if(!branch || !branch._id){
+	 	brnc = {_id:""}
+	 } else {
+	 	brnc = branch
+	 }
+		  this.setState({
+			 	company:company,
+			 	branch:brnc
+			 	})
+}
 
 
 	render() {
 
-const {company,branch} = this.props
+const {company,branch,content} = this.state
 console.log(company)
 console.log(branch)
 if (company.profile.branchId==false )
 		{
 			branchFragment = <CreateOrBeMemberBranch />
 		} else {
-			branchFragment =<BranchFragment branch={branch} company={company} />
+			branchFragment =<BranchFragment  branch={branch} company={company} />
 		}
 
 		return (
 			<div className="className">
-			<CompaniesMenu />
-			{branchFragment}
-
-
+				<MenuFragment company={company} branch={branch} />
+				{branchFragment}
 			</div>
 		);
 	}

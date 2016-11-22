@@ -13,6 +13,13 @@ import { Button, Card, Image } from 'semantic-ui-react'
 	
 		const {branch,company} = this.props
 		console.log(branch)
+if (company.profile.branchId==branch._id && branch.headQuarter){
+  meta = branch._id
+  desc = <span>  Copy and send this code to your branch for <strong> create a branch in luck2shop </strong> </span>
+} else {
+  meta = ""
+  desc =<span>This is a branch</span>}
+
 		return (
 	 <Card>
       <Card.Content>
@@ -21,10 +28,10 @@ import { Button, Card, Image } from 'semantic-ui-react'
           {branch.name}
         </Card.Header>
         <Card.Meta>
-          {branch._id}
+          {meta}
         </Card.Meta>
         <Card.Description>
-          Copy and send this code to your branch for <strong> create a branch in luck2shop </strong>
+         {desc}
         </Card.Description>
       </Card.Content>
       <Card.Content extra>

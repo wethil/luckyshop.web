@@ -21,34 +21,39 @@ import { Meteor } from 'meteor/meteor';
 
 	render() {
 		return (
-			<form>
-				  <div className="form-group">
-				    <label >Username</label>
-				    <input 
+			  <div className="ui stacked segment">
+		        <div className="field">
+		          <div className="ui left icon input">
+		            <i className="user icon"></i>
+		            <input 
 				    	type="text" 
 				    	ref="username" 
 				    	className="form-control" 
 				    	id="reg_username" 
 				    	placeholder="Username" />	 
-				  </div>
-				  
-				  <div className="form-group">
-				    <label >Password</label>
-				    <input 
+		          </div>
+		        </div>
+		        <div className="field">
+		          <div className="ui left icon input">
+		            <i className="lock icon"></i>
+		             <input 
 				    	type="password"
 				    	ref="password" 
 				    	className="form-control" 
 				    	id="reg_pass" 
 				    	placeholder="Password" />
-				  </div>
-				  <button 
-				  	type="submit" 
-				  	className="btn btn-default"
-				  	onClick={this.handleLogin}
-				  	>Login</button>
-			</form>
+		          </div>
+		        </div>
+		        <div className="ui fluid large basic teal submit button" onClick={this.handleLogin}>
+		        Login</div>
+		      </div>
+
 		);
 	}
 });
 
 export default Login;			
+
+
+
+

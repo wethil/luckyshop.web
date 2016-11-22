@@ -1,6 +1,7 @@
 import React from 'react';
 import Register from '../userAccount/Register.jsx'
 import {CompaniesMainComposer} from  '../companies/CompaniesMainComposer.jsx'
+import MainPageContent from './MainPageContent.jsx'
 
 
  
@@ -17,7 +18,7 @@ import {CompaniesMainComposer} from  '../companies/CompaniesMainComposer.jsx'
 		if (this.props.user.profile.type=='user') {
       return (
 
-        <span>user</span>
+      <MainPageContent />
       );
     } else {
         return (
